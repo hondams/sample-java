@@ -11,5 +11,6 @@
 		<module>app-lib</module>
 		<module>sample-web</module>
 		<module>sample-batch</module>
+		<module>sample-jms</module>
 	</modules>
 </project>

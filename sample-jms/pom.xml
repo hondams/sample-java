@@ -4,20 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.github.hondams</groupId>
-		<artifactId>app-parent</artifactId>
+		<artifactId>app-jms</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../app-parent/pom.xml</relativePath>
+		<relativePath>../app-lib/app-jms/pom.xml</relativePath>
 	</parent>
-	<artifactId>app-web</artifactId>
-	<packaging>pom</packaging>
+	<artifactId>sample-jms</artifactId>
 	<dependencies>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+
 </project>

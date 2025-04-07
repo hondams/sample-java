@@ -12,5 +12,6 @@
 		<module>app-common</module>
 		<module>app-web</module>
 		<module>app-batch</module>
+		<module>app-jms</module>
 	</modules>
 </project>
