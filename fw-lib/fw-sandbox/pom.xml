@@ -10,6 +10,10 @@
 	</parent>
 	<artifactId>fw-sandbox</artifactId>
 	<dependencies>
+		<dependency>
+			<groupId>com.github.hondams</groupId>
+			<artifactId>fw</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>

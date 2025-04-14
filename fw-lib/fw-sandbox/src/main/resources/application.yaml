@@ -1,0 +1,6 @@
+logging:
+  file:
+    name: test.log
+  level:
+    root: debug
+    
