@@ -13,13 +13,13 @@ import lombok.Data;
 public class TestSampleBigDecimalData {
 
     @DecimalMax(value = "10.0", inclusive = false)
-    private BigDecimal maxExclusiveValue;
+    private BigDecimal exclusiveMaxValue;
 
     @DecimalMax(value = "10.0")
     private BigDecimal maxValue;
 
     @DecimalMin(value = "10.0", inclusive = false)
-    private BigDecimal minExclusiveValue;
+    private BigDecimal exclusiveMinValue;
 
     @DecimalMin(value = "10.0")
     private BigDecimal minValue;

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,8 +16,9 @@ class TestSampleBigDecimalDataTest {
 
     @ParameterizedTest
     @MethodSource("provideTestDataForTestValidation")
-    void testValidation(List<String> expectedMessages, TestSampleBigDecimalData.TestSampleBigDecimalDataBuilder builder) {
-        assertLinesMatch(expectedMessages, ValidationTestUtils.getValidatedMessages(builder.build()));
+    void testValidation(List<String> expectedMessages,
+            TestSampleBigDecimalData.TestSampleBigDecimalDataBuilder builder) {
+        assertLinesMatch(expectedMessages, ValidationTestUtils.getValidatedMessages(builder.build(), Locale.JAPAN));
     }
 
     private static Stream<Object[]> provideTestDataForTestValidation() {
@@ -27,10 +29,15 @@ class TestSampleBigDecimalDataTest {
                         noErrorBuilder()
                 },
                 new Object[] {
+                        List.of(),
+                        noErrorBuilder()
+                                .exclusiveMaxValue(new BigDecimal("9.9999999999"))
+                },
+                new Object[] {
                         List.of(
-                                "10.0 より小さな値にしてください"),
-                                noErrorBuilder()
-                                .maxExclusiveValue(new BigDecimal("10.0"))
+                                "TestSampleBigDecimalDataの含まない最大値は、10.0 より小さな値にしてください"),
+                        noErrorBuilder()
+                                .exclusiveMaxValue(new BigDecimal("10.0"))
                 });
     }
 

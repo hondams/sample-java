@@ -8,6 +8,7 @@ import java.util.Objects;
 import org.springframework.boot.validation.MessageInterpolatorFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.util.ClassUtils;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -57,23 +58,35 @@ public class ValidationTestUtils {
     }
 
     public BindingResult validate(Object form) {
-        BeanPropertyBindingResult bindingResult = new BeanPropertyBindingResult(form, form.getClass().getSimpleName());
+        BindingResult bindingResult = createBindingResult(form);
         getValidator().validate(form, bindingResult);
         return bindingResult;
     }
 
     public BindingResult validate(Object form, Class<?>... groups) {
-        BeanPropertyBindingResult bindingResult = new BeanPropertyBindingResult(form, form.getClass().getSimpleName());
+        BindingResult bindingResult = createBindingResult(form);
         getValidator().validate(form, bindingResult, (Object[]) groups);
         return bindingResult;
     }
 
-    public List<String> getValidatedMessages(Object form) {
-        BeanPropertyBindingResult bindingResult = new BeanPropertyBindingResult(form, form.getClass().getSimpleName());
-        getValidator().validate(form, bindingResult);
+    public List<String> getValidatedMessages(Object form, Locale locale) {
+        BindingResult bindingResult = validate(form);
+        return getMessages(bindingResult.getAllErrors(), locale);
+    }
+
+    public List<String> getValidatedMessages(Object form, Locale locale, Class<?>... groups) {
+        BindingResult bindingResult = validate(form, groups);
+        return getMessages(bindingResult.getAllErrors(), locale);
+    }
+
+    private BindingResult createBindingResult(Object form) {
+        return new BeanPropertyBindingResult(form,  ClassUtils.getShortNameAsProperty(form.getClass()));
+    }
+
+    private List<String> getMessages(List<ObjectError> errors, Locale locale) {
         List<String> messages = new ArrayList<>();
-        for (ObjectError error : bindingResult.getAllErrors()) {
-            messages.add(getMessageSource().getMessage(error, Locale.JAPAN));
+        for (ObjectError error : errors) {
+            messages.add(getMessageSource().getMessage(error, locale));
         }
         return messages;
     }

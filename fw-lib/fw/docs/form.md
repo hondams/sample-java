@@ -4,6 +4,9 @@
 
 - 真偽値
   - boolean/Boolean
+    - 文字列形式：「true」または、「false」となるので、メッセージは、個別に設定する。
+    - checkboxの標準文字列は、「on」となる。
+      - [Checkbox Value](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkbox#value)
 整数値
   - Integer
   - Long
@@ -20,6 +23,8 @@
   - LocalTime
 - 時間
   - Duration
+    - 文字列形式：「ISO-8601デュレーション・フォーマットPnDTnHnMn.nS」となるので、基本的に利用しない
+      - [Duration#parse(String)](https://docs.oracle.com/javase/jp/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)
 - 複合データ型
   - データクラス
 - リスト

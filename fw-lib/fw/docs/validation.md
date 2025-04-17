@@ -106,8 +106,13 @@
 
 ## Hibernate Validationの実装
 
-https://github.com/hibernate/hibernate-validator/blob/main/engine/src/main/java/org/hibernate/validator/internal/constraintvalidators/bv/NullValidator.java
-https://github.com/hibernate/hibernate-validator/blob/main/engine/src/main/java/org/hibernate/validator/internal/metadata/core/ConstraintHelper.java
+- https://github.com/hibernate/hibernate-validator/blob/main/engine/src/main/java/org/hibernate/validator/internal/metadata/core/ConstraintHelper.java
+  - アノテーションとConstraintValidatorの対応関係を構築
+
+- https://github.com/hibernate/hibernate-validator/blob/main/engine/src/main/java/org/hibernate/validator/internal/engine/ValidatorFactoryImpl.java
+  - 標準のアノテーションとConstraintValidatorを構築し、ValidatorImpl を生成
+
+- 標準バリデーションのロジック変更は、難しそう・・・。
 
 ### custom validation develop guide
 
@@ -133,3 +138,38 @@ https://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebApp
   - クラスパス直下のValidationMessages.properties (複数あると1ファイルのみ有効)
   - クラスパス直下のContributorValidationMessages.properties (全ファイル有効)
   - クラスパス上のorg/hibernate/validator/ValidationMessages.properteis(HV提供のデフォルトのメッセージ定義ファイル)
+
+### メッセージファイルのキー
+
+https://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebApplicationDetail/Validation.html#application-messages-properties
+https://docs.spring.io/spring-framework/docs/6.2.1/javadoc-api/org/springframework/validation/DefaultMessageCodesResolver.html
+
+- springのmessages-propertiesに記載できるメッセージ
+  - 項目名
+    - メッセージキー
+      - フォーム名（単純クラス名をLowerCamelCaseに変換）+ "." + フィールド名
+      - フィールド名
+        - こちらは、利用せず、フォームクラスごとに定義する。
+  - 型変換できなかった時のエラーメッセージ
+    - メッセージキー
+      - "typeMismatch." + フィールドのデータ型（完全修飾クラス名）
+
+- springのmessages-propertiesに記載できるが利用すべきでないメッセージ
+  - バリデーションエラーの時のエラーメッセージ
+    - メッセージキー
+      - バリデーションアノテーション名（単純クラス名）+ "." + フィールド名
+      - バリデーションアノテーション名（単純クラス名）+ "." + フィールド名
+      - バリデーションアノテーション名（単純クラス名）+ "." + フィールドのデータ型（完全修飾クラス名）
+    - 仕組み
+      - 型ごとに、別のメッセージを定義可能
+      - springのmessages.propertiesは、MessageSourceSupportで、MessageFormatとして解釈。
+        - {0}：項目名、{1}～：アノテーションの属性値（属性名のアルファベット順）
+          - 実際の制約注釈属性（つまり、「message」、「groups」、「payload」を除く）をすべて、属性名のアルファベット順に追加
+            - https://docs.spring.io/spring-framework/docs/6.2.1/javadoc-api/org/springframework/validation/beanvalidation/SpringValidatorAdapter.html#getArgumentsForConstraint(java.lang.String,java.lang.String,jakarta.validation.metadata.ConstraintDescriptor)
+    - 考察
+      - {0}、{1}などしか解釈できず、EL式を利用できないので、「フィールドのデータ型（完全修飾クラス名）」ごとに、全パターンのメッセージは定義できない。
+
+- バリデーションエラーの時のエラーメッセージ：？
+  - 基本的に、ValidationMessages_ja.propertiesを使用。
+    - Hibernate Validatorの仕様で、EL式が利用できる。
+    - フィールドのデータ型ごとに、メッセージを切り替えるには、「フィールドのデータ型に応じて適切なメッセージを動的に選択する MessageInterpolator を実装」
