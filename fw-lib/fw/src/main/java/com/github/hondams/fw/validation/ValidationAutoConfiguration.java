@@ -2,12 +2,16 @@ package com.github.hondams.fw.validation;
 
 import java.io.IOException;
 
+import org.hibernate.validator.internal.engine.AbstractConfigurationImpl;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.validation.MessageInterpolatorFactory;
+import org.springframework.boot.autoconfigure.validation.ValidationConfigurationCustomizer;
+import org.springframework.boot.validation.MessageSourceMessageInterpolatorFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.validation.MessageInterpolator;
@@ -35,19 +39,8 @@ public class ValidationAutoConfiguration {
     }
 
     @Bean
-    MessageInterpolator messageInterpolator(MessageSource messageSource) {
-
-        // org.springframework.boot.validation.MessageInterpolatorFactoryの実装を参考に、
-        // 外側から、
-        // org.springframework.boot.validation.MessageSourceMessageInterpolator
-        // FieldTypeごとに、メッセージを切り替えるMessageInterpolator
-        // Validation.byDefaultProvider().configure().getDefaultMessageInterpolator()
-        // となるように、MessageInterpolatorを用意する。
-
-        MessageInterpolator messageInterpolator =
-            Validation.byDefaultProvider().configure().getDefaultMessageInterpolator();
-        messageInterpolator = new MessageSourceMessageInterpolator(messageSource, messageInterpolator);
-        return messageInterpolator;
+    MessageInterpolatorFactory messageInterpolator(MessageSource messageSource) {
+        return new MessageInterpolatorFactory(messageSource);  
     }
 
     @PostConstruct

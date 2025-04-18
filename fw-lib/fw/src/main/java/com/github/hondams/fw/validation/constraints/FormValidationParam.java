@@ -1,4 +1,4 @@
-package com.github.hondams.fw.validation;
+package com.github.hondams.fw.validation.constraints;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

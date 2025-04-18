@@ -10,8 +10,8 @@
 		<module>app-dependencies</module>
 		<module>app-parent</module>
 		<module>app-common</module>
-		<module>app-web</module>
-		<module>app-batch</module>
-		<module>app-jms</module>
+		<module>app-web-parent</module>
+		<module>app-batch-parent</module>
+		<module>app-jms-parent</module>
 	</modules>
 </project>

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-import org.springframework.boot.validation.MessageInterpolatorFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.util.ClassUtils;
@@ -13,6 +12,8 @@ import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+import com.github.hondams.fw.validation.MessageInterpolatorFactory;
 
 import lombok.experimental.UtilityClass;
 

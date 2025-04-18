@@ -1,6 +1,6 @@
-package com.github.hondams.fw.validation;
+package com.github.hondams.fw.validation.constraints.validator;
 
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import com.github.hondams.fw.validation.constraints.FormValidation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

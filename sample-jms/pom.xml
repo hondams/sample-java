@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.github.hondams</groupId>
-		<artifactId>app-jms</artifactId>
+		<artifactId>app-jms-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../app-lib/app-jms/pom.xml</relativePath>
+		<relativePath>../app-lib/app-jms-parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>sample-jms</artifactId>
 	<dependencies>

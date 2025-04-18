@@ -10,10 +10,6 @@
 	</parent>
 	<artifactId>app-common</artifactId>
 	<dependencies>
-		<dependency>
-			<groupId>com.github.hondams</groupId>
-			<artifactId>fw</artifactId>
-		</dependency>
 	</dependencies>
 
 </project>

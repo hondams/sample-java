@@ -1,4 +1,4 @@
-package com.github.hondams.fw.validation;
+package com.github.hondams.fw.test.sample.validation;
 
 import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 
@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import com.github.hondams.fw.test.sample.validation.target.TestSampleBigDecimalData;
 import com.github.hondams.fw.test.validation.ValidationTestUtils;
 
 class TestSampleBigDecimalDataTest {

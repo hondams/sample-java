@@ -1,11 +1,15 @@
-package com.github.hondams.fw.validation;
+package com.github.hondams.fw.test.sample.validation.target;
 
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class TestSampleLongData {
+
+    @NotNull
+    private Long notNullValue;
 
     @DecimalMax(value = "10")
     private Long maxValue;

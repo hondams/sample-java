@@ -21,4 +21,15 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>com.github.hondams</groupId>
+			<artifactId>fw</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.hondams</groupId>
+			<artifactId>fw-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

@@ -28,7 +28,7 @@ class AssertTest {
     void testFail() {
         boolean fail = false;
         if (fail) {
-            // 実行してはいけないルートでは、fail()を実行する。
+            // 実行してはいけないルートは、fail()を実行し、実行しないことを確認する。
             fail();
         }
     }
@@ -141,5 +141,4 @@ class AssertTest {
         assertTimeoutPreemptively(Duration.ofSeconds(2), () -> {
             /* 2秒以内の処理 */});
     }
-
 }

@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../app-parent/pom.xml</relativePath>
 	</parent>
-	<artifactId>app-batch</artifactId>
+	<artifactId>app-web-parent</artifactId>
 	<packaging>pom</packaging>
 	<dependencies>
 	</dependencies>

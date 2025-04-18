@@ -8,8 +8,8 @@
     - checkboxの標準文字列は、「on」となる。
       - [Checkbox Value](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkbox#value)
 整数値
-  - Integer
-  - Long
+  - Integer（9桁）
+  - Long（18桁）
   - BigInteger
 - 小数値
   - BigDecimal
@@ -22,12 +22,14 @@
 - 時分秒
   - LocalTime
 - 時間
-  - Duration
+  - 【利用しない】Duration
     - 文字列形式：「ISO-8601デュレーション・フォーマットPnDTnHnMn.nS」となるので、基本的に利用しない
       - [Duration#parse(String)](https://docs.oracle.com/javase/jp/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)
 - 複合データ型
   - データクラス
-- リスト
+- 複合データ型のリスト
+  - List
+- 文字列リスト
   - List
 
 ## 入力フォームで利用可能な入力チェック
@@ -106,6 +108,12 @@
     - NotNull
       - アノテーション付き要素は null であってはなりません。
 - 文字列リスト
+  - 【使わない：基本的に、常に、非nullにする】NotNull
+    - アノテーション付き要素は null であってはなりません。
+  - NotEmpty
+    - アノテーション付き要素は null または空であってはなりません。
+  - Size
+    - アノテーション付き要素のサイズは、指定された境界（含まれる）の間にある必要があります。
   - リスト要素には、文字列と同じバリデーションを指定可能
 
 ```java
