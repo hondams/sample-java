@@ -1,4 +1,4 @@
-package com.github.hondams.fw.validation.constraints.validator;
+package com.github.hondams.fw.validation.constraintvalidators;
 
 import com.github.hondams.fw.validation.constraints.FormValidation;
 

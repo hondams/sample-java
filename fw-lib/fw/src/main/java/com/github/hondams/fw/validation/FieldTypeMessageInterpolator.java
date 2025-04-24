@@ -9,9 +9,11 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import org.hibernate.validator.messageinterpolation.HibernateMessageInterpolatorContext;
 import org.hibernate.validator.spi.resourceloading.ResourceBundleLocator;
 
 import jakarta.validation.MessageInterpolator;
+import jakarta.validation.Path;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -48,13 +50,34 @@ public class FieldTypeMessageInterpolator implements MessageInterpolator {
     }
     
     private Class<?> getFieldType(Context context) {
-        if (context.getValidatedValue() == null) {
-            return null;
+        if (context instanceof HibernateMessageInterpolatorContext messageInterpolatorContext) {
+            // messageInterpolatorContextから、データクラスに定義されているデータ項目のデータ型を取得する。
+            // ただし、Hibernate Validatorのバージョンによっては、取得できない場合がある。
+            // その場合は、nullを返す。
+            // 取得できない場合は、Hibernate Validatorのバージョンを確認すること。            
+            Path propertyPath = messageInterpolatorContext.getPropertyPath();
+            Class<?> rootBeanClass = messageInterpolatorContext.getRootBeanType();
+
+            propertyPath.
+            if (propertyPath != null && rootBeanClass != null) {
+                try {
+                    String fieldName = propertyPath.toString(); // Assumes simple property paths
+                    return rootBeanClass.getDeclaredField(fieldName).getType();
+                } catch (NoSuchFieldException | SecurityException e) {
+                    // Log or handle the exception if necessary
+                    return null;
+                }
+            }
         }
-        Class<?> fieldType = context.getValidatedValue().getClass();
-        if (!supportedFieldTypes.contains(fieldType)) {
-            return null;
+
         }
+        // if (context.getValidatedValue() == null) {
+        //     return null;
+        // }
+        // Class<?> fieldType = context.getValidatedValue().getClass();
+        // if (!supportedFieldTypes.contains(fieldType)) {
+        //     return null;
+        // }
         return fieldType;
     }
 

@@ -2,6 +2,8 @@ package com.github.hondams.fw.test.sample.validation.target;
 
 import java.math.BigDecimal;
 
+import org.terasoluna.gfw.common.validator.constraints.Compare;
+
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;

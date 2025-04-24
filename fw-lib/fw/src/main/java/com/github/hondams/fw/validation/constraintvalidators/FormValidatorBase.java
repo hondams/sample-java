@@ -1,4 +1,4 @@
-package com.github.hondams.fw.validation.constraints.validator;
+package com.github.hondams.fw.validation.constraintvalidators;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;

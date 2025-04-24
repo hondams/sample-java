@@ -122,6 +122,14 @@ https://docs.jboss.org/hibernate/validator/9.0/reference/en-US/html_single/#vali
 
 https://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebApplicationDetail/Validation.html
 
+- 【TERASOLUNA】項目間比較（Compare）
+- 【TERASOLUNA】文字列バイトサイズ範囲（ByteSize）、文字列バイトサイズ上限（ByteMax）、文字列バイトサイズ下限（ByteMin）
+
+### Hibernate 入力チェック
+
+- 【Hibernate validation】数値範囲
+  - Hibernate validationに、Rangeがあるが、MinとMaxの合成アノテーションなので、使わない。
+
 ### アノテーションのパラメータに利用可能なデータ型
 
 - https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-9.6.1
@@ -130,6 +138,7 @@ https://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/WebApp
   - Class or an invocation of Class (§4.5)
   - An enum type
   - An annotation type
+    - Object型？、アノテーション型
   - An array type whose component type is one of the preceding types (§10.1).
 
 ### メッセージファイルの優先順位

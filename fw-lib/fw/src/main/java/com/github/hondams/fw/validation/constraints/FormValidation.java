@@ -7,8 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.github.hondams.fw.validation.constraints.validator.DelegatingFormValidator;
-import com.github.hondams.fw.validation.constraints.validator.FormValidatorBase;
+import com.github.hondams.fw.validation.constraintvalidators.DelegatingFormValidator;
+import com.github.hondams.fw.validation.constraintvalidators.FormValidatorBase;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
