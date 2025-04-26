@@ -13,6 +13,9 @@ public class TestSampleIntegerData {
     @NotNull
     private Integer notNullValue;
 
+    @NotNull
+    private Integer nullValue;
+
     @Max(10)
     private Integer maxValue;
 

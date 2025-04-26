@@ -22,10 +22,25 @@ public class TestSampleStringListData {
     @Builder.Default
     private List<@NotEmpty String> notEmptyValues = new ArrayList<>();
 
-    @Size(min = 1, max = 10)
+    @Size(min = 1, max = 13)
     @Builder.Default
-    private List<@Size(min = 1, max = 10) String> sizeValues = new ArrayList<>();
+    private List<String> sizeValues = new ArrayList<>();
+
+    @Size(min = 1)
+    @Builder.Default
+    private List<String> minSizeValues = new ArrayList<>();
+
+    @Size(max = 3)
+    @Builder.Default
+    private List<String> maxSizeValues = new ArrayList<>();
+
+    @Size(min = 3, max = 3)
+    @Builder.Default
+    private List<String> fixSizeValues = new ArrayList<>();
 
     @Builder.Default
-    private List<@Pattern(regexp = "^[a-zA-Z0-9]+$") String> patternValue = new ArrayList<>();
+    private List<@NotNull String> notNullItemValues = new ArrayList<>();
+
+    @Builder.Default
+    private List<@Pattern(regexp = "^[a-zA-Z0-9]+$") String> patternItemValues = new ArrayList<>();
 }

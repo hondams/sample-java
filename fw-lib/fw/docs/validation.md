@@ -182,3 +182,7 @@ https://docs.spring.io/spring-framework/docs/6.2.1/javadoc-api/org/springframewo
   - 基本的に、ValidationMessages_ja.propertiesを使用。
     - Hibernate Validatorの仕様で、EL式が利用できる。
     - フィールドのデータ型ごとに、メッセージを切り替えるには、「フィールドのデータ型に応じて適切なメッセージを動的に選択する MessageInterpolator を実装」
+
+### jakarta-expression-language
+
+https://jakarta.ee/specifications/expression-language/4.0/jakarta-expression-language-spec-4.0#composite-expressions
