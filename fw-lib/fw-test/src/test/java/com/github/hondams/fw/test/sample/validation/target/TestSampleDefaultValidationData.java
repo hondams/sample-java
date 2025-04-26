@@ -2,7 +2,6 @@ package com.github.hondams.fw.test.sample.validation.target;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.validation.constraints.AssertFalse;

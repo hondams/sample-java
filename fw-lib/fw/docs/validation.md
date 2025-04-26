@@ -162,6 +162,9 @@ https://docs.spring.io/spring-framework/docs/6.2.1/javadoc-api/org/springframewo
   - 型変換できなかった時のエラーメッセージ
     - メッセージキー
       - "typeMismatch." + フィールドのデータ型（完全修飾クラス名）
+    - 問題点
+      - すべてのフィールドについて、チェックされない可能性がある？
+      - エラーが発生した親要素もエラーになる？
 
 - springのmessages-propertiesに記載できるが利用すべきでないメッセージ
   - バリデーションエラーの時のエラーメッセージ

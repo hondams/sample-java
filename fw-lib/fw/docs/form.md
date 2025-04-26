@@ -61,28 +61,28 @@
     - Null
       - アノテーション付き要素は null でなければなりません。
       - 【利用時注意】基本的に、グループと一緒に利用する
-    - 【追加】IntRange ※ Rangeが、Hibernate Validationにあるので、IntRangeとする。
+    - 【追加】LongRange ※ Rangeが、Hibernate Validationにあるので、LongRangeとする。
       - アノテーション付き要素は、指定された最小値以上、最大値以下の値を持つ必要がある数値である必要があります。
     - 【使わない】Max
       - アノテーション付き要素は、指定された最大値以下の値を持つ必要がある数値である必要があります。
-      - 【利用禁止】IntRangeを利用する。
+      - 【利用禁止】LongRangeを利用する。
     - 【使わない】Min
       - アノテーション付き要素は、指定された最小値以上の値を持つ必要がある数値である必要があります。
-      - 【利用禁止】IntRangeを利用する。
+      - 【利用禁止】LongRangeを利用する。
   - Long
     - NotNull
       - アノテーション付き要素は null であってはなりません。
     - Null
       - アノテーション付き要素は null でなければなりません。
       - 【利用時注意】基本的に、グループと一緒に利用する
-    - 【追加】DecimalRange
+    - 【追加】LongRange ※ Rangeが、Hibernate Validationにあるので、LongRangeとする。
       - アノテーション付き要素は、指定された最小値以上、最大値以下の値を持つ必要がある数値である必要があります。
-    - 【使わない】DecimalMax
+    - 【使わない】Max
       - アノテーション付き要素は、指定された最大値以下の値を持つ必要がある数値である必要があります。
-      - 【利用禁止】DecimalRangeを利用する。
-    - 【使わない】DecimalMin
+      - 【利用禁止】LongRangeを利用する。
+    - 【使わない】Min
       - アノテーション付き要素は、指定された最小値以上の値を持つ必要がある数値である必要があります。
-      - 【利用禁止】DecimalRangeを利用する。
+      - 【利用禁止】LongRangeを利用する。
   - BigInteger
     - NotNull
       - アノテーション付き要素は null であってはなりません。
@@ -237,3 +237,11 @@ private List<@Pattern("[0-9]+") String> codes;
         binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
     }
 ```
+
+## データ型チェック
+
+- 問題点
+  - JsonBodyなどは、データ型チェックが動作しない？
+  - typeMismatchのチェックで、うまく、検知できない可能性がある？
+- 対策
+  - すべての項目を文字列で受け取り、バリデーションし、サービスの入力に、MapStructで変換する。

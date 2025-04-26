@@ -1,6 +1,5 @@
 package com.github.hondams.fw.test.sample.validation.target;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import jakarta.validation.constraints.DecimalMax;
