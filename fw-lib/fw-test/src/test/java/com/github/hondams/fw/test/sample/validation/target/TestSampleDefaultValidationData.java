@@ -102,9 +102,9 @@ public class TestSampleDefaultValidationData {
     @Size(max = 3)
     private List<String> maxOnlySizeValue;
 
-    @Size(min = 2, max=5)
+    @Size(min = 2, max = 5)
     private List<String> rangeSizeValue;
 
-    @Size(min = 3, max=3)
+    @Size(min = 3, max = 3)
     private List<String> fixSizeValue;
 }
