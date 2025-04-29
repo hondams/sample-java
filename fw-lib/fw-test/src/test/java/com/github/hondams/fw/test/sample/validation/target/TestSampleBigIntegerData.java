@@ -12,12 +12,9 @@ import lombok.Data;
 @Builder
 public class TestSampleBigIntegerData {
 
-    @NotNull
-    private BigInteger notNullValue;
+    @NotNull private BigInteger notNullValue;
 
-    @DecimalMax(value = "10")
-    private BigInteger maxValue;
+    @DecimalMax(value = "10") private BigInteger maxValue;
 
-    @DecimalMin(value = "10")
-    private BigInteger minValue;
+    @DecimalMin(value = "10") private BigInteger minValue;
 }

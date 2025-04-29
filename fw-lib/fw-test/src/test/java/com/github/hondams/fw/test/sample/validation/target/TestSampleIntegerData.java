@@ -10,15 +10,11 @@ import lombok.Data;
 @Builder
 public class TestSampleIntegerData {
 
-    @NotNull
-    private Integer notNullValue;
+    @NotNull private Integer notNullValue;
 
-    @NotNull
-    private Integer nullValue;
+    @NotNull private Integer nullValue;
 
-    @Max(10)
-    private Integer maxValue;
+    @Max(10) private Integer maxValue;
 
-    @Min(10)
-    private Integer minValue;
+    @Min(10) private Integer minValue;
 }

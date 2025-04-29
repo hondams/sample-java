@@ -43,16 +43,20 @@ public abstract class FormValidatorBase implements ConstraintValidator<FormValid
         return isValidCore(form, context);
     }
 
-    protected void addPropertyError(ConstraintValidatorContext context, String message, String propertyName) {
+    protected void addPropertyError(ConstraintValidatorContext context, String message,
+            String propertyName) {
         context.disableDefaultConstraintViolation();
-        ConstraintViolationBuilder constraintViolationBuilder = context.buildConstraintViolationWithTemplate(message);
+        ConstraintViolationBuilder constraintViolationBuilder =
+                context.buildConstraintViolationWithTemplate(message);
         constraintViolationBuilder.addPropertyNode(propertyName);
         constraintViolationBuilder.addConstraintViolation();
     }
-    
-    protected void addPropertiesError(ConstraintValidatorContext context, String message, String... propertyNames) {
+
+    protected void addPropertiesError(ConstraintValidatorContext context, String message,
+            String... propertyNames) {
         context.disableDefaultConstraintViolation();
-        ConstraintViolationBuilder constraintViolationBuilder = context.buildConstraintViolationWithTemplate(message);
+        ConstraintViolationBuilder constraintViolationBuilder =
+                context.buildConstraintViolationWithTemplate(message);
         for (String propertyName : propertyNames) {
             constraintViolationBuilder.addPropertyNode(propertyName);
         }
@@ -61,7 +65,8 @@ public abstract class FormValidatorBase implements ConstraintValidator<FormValid
 
     protected void addBeanError(ConstraintValidatorContext context, String message) {
         context.disableDefaultConstraintViolation();
-        ConstraintViolationBuilder constraintViolationBuilder = context.buildConstraintViolationWithTemplate(message);
+        ConstraintViolationBuilder constraintViolationBuilder =
+                context.buildConstraintViolationWithTemplate(message);
         constraintViolationBuilder.addBeanNode();
         constraintViolationBuilder.addConstraintViolation();
     }

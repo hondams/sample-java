@@ -10,12 +10,9 @@ import lombok.Data;
 @Builder
 public class TestSampleLongData {
 
-    @NotNull
-    private Long notNullValue;
+    @NotNull private Long notNullValue;
 
-    @DecimalMax(value = "10")
-    private Long maxValue;
+    @DecimalMax(value = "10") private Long maxValue;
 
-    @DecimalMin(value = "10")
-    private Long minValue;
+    @DecimalMin(value = "10") private Long minValue;
 }

@@ -73,9 +73,9 @@ class AssertTest {
     void testAssertThrows() {
 
         // 本来は、以下を実装するべきであるが、オーソドックスに、try-catchを利用する。
-    //     assertThrowsExactly(TestSampleException.class, () -> {
-    //         throw new TestSampleException("error message.");
-    //     });
+        // assertThrowsExactly(TestSampleException.class, () -> {
+        // throw new TestSampleException("error message.");
+        // });
 
 
         try {
@@ -85,7 +85,7 @@ class AssertTest {
             run.run();
             // 例外が発生しない場合は、以下でエラーにする。
             fail();
-        } catch(TestSampleException e) {
+        } catch (TestSampleException e) {
             // 例外クラスは、assertEqualsで、同値確認する。
             assertEquals(TestSampleException.class, e.getClass());
             // エラーメッセージも、確認する。

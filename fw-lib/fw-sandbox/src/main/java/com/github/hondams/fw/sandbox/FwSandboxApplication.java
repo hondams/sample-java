@@ -9,9 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FwSandboxApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FwSandboxApplication.class, args);
-		log.info("FwSandboxApplication started {}", System.getProperty("user.dir"));
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FwSandboxApplication.class, args);
+        log.info("FwSandboxApplication started {}", System.getProperty("user.dir"));
+    }
 
 }

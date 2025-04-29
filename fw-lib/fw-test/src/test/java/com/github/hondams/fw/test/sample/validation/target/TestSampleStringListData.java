@@ -14,28 +14,22 @@ import lombok.Data;
 @Builder
 public class TestSampleStringListData {
 
-    @NotNull
-    @Builder.Default
+    @NotNull @Builder.Default
     private List<@NotNull String> notNullValues = new ArrayList<>();
 
-    @NotEmpty
-    @Builder.Default
+    @NotEmpty @Builder.Default
     private List<@NotEmpty String> notEmptyValues = new ArrayList<>();
 
-    @Size(min = 1, max = 13)
-    @Builder.Default
+    @Size(min = 1, max = 13) @Builder.Default
     private List<String> sizeValues = new ArrayList<>();
 
-    @Size(min = 1)
-    @Builder.Default
+    @Size(min = 1) @Builder.Default
     private List<String> minSizeValues = new ArrayList<>();
 
-    @Size(max = 3)
-    @Builder.Default
+    @Size(max = 3) @Builder.Default
     private List<String> maxSizeValues = new ArrayList<>();
 
-    @Size(min = 3, max = 3)
-    @Builder.Default
+    @Size(min = 3, max = 3) @Builder.Default
     private List<String> fixSizeValues = new ArrayList<>();
 
     @Builder.Default

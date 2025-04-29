@@ -192,7 +192,7 @@ class DoCallRealMethodTest {
         }
     }
 
-    public static abstract class SomeAbstractClass {
+    public abstract static class SomeAbstractClass {
         public void someMethod() {
             callCount++;
             log = getClass().getSimpleName() + "{}:" + callCount;

@@ -16,9 +16,11 @@ class ReflectionTest {
 
     @Test
     void testStaticField() {
-        assertEquals(null, ReflectionTestUtils.getField(TestSamplePrivateMembers.class, "staticField"));
+        assertEquals(null,
+                ReflectionTestUtils.getField(TestSamplePrivateMembers.class, "staticField"));
         ReflectionTestUtils.setField(TestSamplePrivateMembers.class, "staticField", "A");
-        assertEquals("A", ReflectionTestUtils.getField(TestSamplePrivateMembers.class, "staticField"));
+        assertEquals("A",
+                ReflectionTestUtils.getField(TestSamplePrivateMembers.class, "staticField"));
     }
 
     @Test
@@ -32,14 +34,15 @@ class ReflectionTest {
     @Test
     void testInvokeStaticMethod() {
         ReflectionTestUtils.setField(TestSamplePrivateMembers.class, "staticField", "A1");
-        assertEquals("A1:B1",
-                ReflectionTestUtils.invokeMethod(TestSamplePrivateMembers.class, "invokeStaticMethod", "B1"));
+        assertEquals("A1:B1", ReflectionTestUtils.invokeMethod(TestSamplePrivateMembers.class,
+                "invokeStaticMethod", "B1"));
     }
 
     @Test
     void testInvokeInstanceMethod() {
         TestSamplePrivateMembers target = new TestSamplePrivateMembers();
         ReflectionTestUtils.setField(target, "instanceField", "A2");
-        assertEquals("A2:B2", ReflectionTestUtils.invokeMethod(target, "invokeInstanceMethod", "B2"));
+        assertEquals("A2:B2",
+                ReflectionTestUtils.invokeMethod(target, "invokeInstanceMethod", "B2"));
     }
 }

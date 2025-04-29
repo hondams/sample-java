@@ -10,7 +10,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 
 @AutoConfiguration
-@RequiredArgsConstructor    
+@RequiredArgsConstructor
 public class ValidationAutoConfiguration {
 
     private final ResourcePatternResolver resourcePatternResolver;
@@ -18,16 +18,20 @@ public class ValidationAutoConfiguration {
     @PostConstruct
     public void init() throws IOException {
 
-        Resource[] resources = this.resourcePatternResolver.getResources(ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX + "/ValidationMessages.properties");
-        
+        Resource[] resources = this.resourcePatternResolver
+                .getResources(ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX
+                        + "/ValidationMessages.properties");
+
         switch (resources.length) {
             case 0:
-                throw new IllegalStateException("ValidationMessages.properties not found in classpath.");
+                throw new IllegalStateException(
+                        "ValidationMessages.properties not found in classpath.");
             case 1:
                 // Only one resource found, no action needed.
                 break;
             default:
-                throw new IllegalStateException("Multiple ValidationMessages.properties found in classpath. " + resources);
+                throw new IllegalStateException(
+                        "Multiple ValidationMessages.properties found in classpath. " + resources);
         }
     }
 }

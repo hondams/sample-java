@@ -37,7 +37,8 @@ public class ValidationTestUtils {
     private MessageSource getMessageSource() {
         if (messageSource == null) {
             // org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration
-            ResourceBundleMessageSource resourceBundleMessageSource = new ResourceBundleMessageSource();
+            ResourceBundleMessageSource resourceBundleMessageSource =
+                    new ResourceBundleMessageSource();
             resourceBundleMessageSource.setBasename(messageBasenames);
             resourceBundleMessageSource.setUseCodeAsDefaultMessage(true);
             resourceBundleMessageSource.setDefaultEncoding(messageDefaultEncoding);
@@ -50,7 +51,8 @@ public class ValidationTestUtils {
         if (validator == null) {
             // org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration
             LocalValidatorFactoryBean validatorFactoryBean = new LocalValidatorFactoryBean();
-            MessageInterpolatorFactory interpolatorFactory = new MessageInterpolatorFactory(getMessageSource());
+            MessageInterpolatorFactory interpolatorFactory =
+                    new MessageInterpolatorFactory(getMessageSource());
             validatorFactoryBean.setMessageInterpolator(interpolatorFactory.getObject());
             validatorFactoryBean.afterPropertiesSet();
             validator = validatorFactoryBean;
@@ -81,7 +83,8 @@ public class ValidationTestUtils {
     }
 
     private BindingResult createBindingResult(Object form) {
-        return new BeanPropertyBindingResult(form,  ClassUtils.getShortNameAsProperty(form.getClass()));
+        return new BeanPropertyBindingResult(form,
+                ClassUtils.getShortNameAsProperty(form.getClass()));
     }
 
     private List<String> getMessages(List<ObjectError> errors, Locale locale) {

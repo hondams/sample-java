@@ -12,6 +12,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<m2e.apt.activation>jdt_apt</m2e.apt.activation>
+		<spotless.version>2.44.4</spotless.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -79,6 +80,58 @@
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
+			</plugin>
+			<plugin>
+				<!-- https://github.com/diffplug/spotless/tree/main/plugin-maven -->
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>${spotless.version}</version>
+				<configuration>
+					<java>
+						<!-- no need to specify files, inferred automatically, but you can if you want -->
+						<cleanthat>
+							<mutators>
+								<!-- optional. Default to 'SafeAndConsensual' to include all mutators -->
+								<mutator>SafeAndConsensual</mutator>
+								<mutator>SafeButNotConsensual</mutator>
+								<mutator>SafeButControversial</mutator>
+							</mutators>
+							<!-- You can discard specific rules -->
+							<!--
+							<excludedMutators>
+								<excludedMutator>OptionalNotEmpty</excludedMutator>
+							</excludedMutators>
+							-->
+							<!-- optional. Default to false, not to include draft mutators from Composite mutators -->
+							<includeDraft>true</includeDraft>
+						</cleanthat>
+						<!-- apply a specific flavor of google-java-format and reflow long strings -->
+						<eclipse>
+							<file>${project.basedir}/../settings/eclipse-java-google-style.xml</file>
+							<!-- If the access to the p2 repositories is restricted, mirrors can be pecified using a URI prefix map as follows:-->
+							<!-- 
+							<p2Mirrors>
+								<p2Mirror>
+								<prefix>https://download.eclipse.org/eclipse/updates/4.35/</prefix>
+								<url>https://some.internal.mirror/4-35-updates-p2/</url>
+								</p2Mirror>
+							</p2Mirrors>
+							-->
+						</eclipse>
+						<formatAnnotations />
+                        <trimTrailingWhitespace/>
+                        <endWithNewline/>
+					</java>
+				</configuration>
+				<executions>
+				<execution>
+					<goals>
+						<goal>apply</goal>
+						<goal>check</goal>
+					</goals>
+					<phase>compile</phase>
+				</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

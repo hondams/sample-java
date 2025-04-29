@@ -33,78 +33,53 @@ import lombok.Data;
 @Builder
 public class TestSampleDefaultValidationData {
 
-    @AssertTrue
-    private Boolean assertTrueValue;
+    @AssertTrue private Boolean assertTrueValue;
 
-    @AssertFalse
-    private Boolean assertFalseValue;
+    @AssertFalse private Boolean assertFalseValue;
 
-    @DecimalMax(value = "3.0")
-    private BigDecimal decimalMaxValue;
+    @DecimalMax(value = "3.0") private BigDecimal decimalMaxValue;
 
-    @DecimalMin(value = "3.0")
-    private BigDecimal decimalMinValue;
+    @DecimalMin(value = "3.0") private BigDecimal decimalMinValue;
 
-    @Digits(integer = 3, fraction = 2)
-    private BigDecimal digitsValue;
+    @Digits(integer = 3, fraction = 2) private BigDecimal digitsValue;
 
-    @Email
-    private String emailValue;
+    @Email private String emailValue;
 
-    @Future
-    private LocalDateTime futureValue;
+    @Future private LocalDateTime futureValue;
 
-    @FutureOrPresent
-    private LocalDateTime futureOrPresentValue;
+    @FutureOrPresent private LocalDateTime futureOrPresentValue;
 
-    @Max(3)
-    private Long maxValue;
+    @Max(3) private Long maxValue;
 
-    @Min(3)
-    private Long minValue;
+    @Min(3) private Long minValue;
 
-    @Negative
-    private Long negativeValue;
+    @Negative private Long negativeValue;
 
-    @NegativeOrZero
-    private Long negativeOrZeroValue;
+    @NegativeOrZero private Long negativeOrZeroValue;
 
-    @NotBlank
-    private String notBlankValue;
+    @NotBlank private String notBlankValue;
 
-    @NotEmpty
-    private String notEmptyValue;
+    @NotEmpty private String notEmptyValue;
 
-    @NotNull
-    private String notNullValue;
+    @NotNull private String notNullValue;
 
-    @Null
-    private String nullValue;
+    @Null private String nullValue;
 
-    @Past
-    private LocalDateTime pastValue;
+    @Past private LocalDateTime pastValue;
 
-    @PastOrPresent
-    private LocalDateTime pastOrPresentValue;
+    @PastOrPresent private LocalDateTime pastOrPresentValue;
 
-    @Pattern(regexp = "^[a-z]+$")
-    private String patternValue;
+    @Pattern(regexp = "^[a-z]+$") private String patternValue;
 
-    @Positive
-    private Long positiveValue;
+    @Positive private Long positiveValue;
 
-    @PositiveOrZero
-    private Long positiveOrZeroValue;
+    @PositiveOrZero private Long positiveOrZeroValue;
 
-    @Size(min = 3)
-    private List<String> minOnlySizeValue;
+    @Size(min = 3) private List<String> minOnlySizeValue;
 
-    @Size(max = 3)
-    private List<String> maxOnlySizeValue;
+    @Size(max = 3) private List<String> maxOnlySizeValue;
 
-    @Size(min = 2, max = 5)
-    private List<String> rangeSizeValue;
+    @Size(min = 2, max = 5) private List<String> rangeSizeValue;
 
-    @Size(min = 3, max = 3)
-    private List<String> fixSizeValue;
+    @Size(min = 3, max = 3) private List<String> fixSizeValue;
 }

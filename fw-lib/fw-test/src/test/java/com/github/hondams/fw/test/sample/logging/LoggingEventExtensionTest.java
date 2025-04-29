@@ -20,18 +20,16 @@ class LoggingEventExtensionTest {
     @Test
     void test() {
 
-        List<ILoggingEvent> loggingEvents =
-                LoggingEventExtension.getLoggingEvents();
+        List<ILoggingEvent> loggingEvents = LoggingEventExtension.getLoggingEvents();
         assertEquals(0, loggingEvents.size());
     }
 
     @Test
     void test2() {
         log.info("test");
-        List<ILoggingEvent> loggingEvents =
-                LoggingEventExtension.getLoggingEvents();
+        List<ILoggingEvent> loggingEvents = LoggingEventExtension.getLoggingEvents();
 
-                assertEquals(1, loggingEvents.size());
+        assertEquals(1, loggingEvents.size());
         for (ILoggingEvent loggingEvent : loggingEvents) {
             assertEquals(Level.INFO, loggingEvent.getLevel());
             assertEquals("test", loggingEvent.getMessage());

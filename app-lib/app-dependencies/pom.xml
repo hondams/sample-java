@@ -6,7 +6,7 @@
 		<groupId>com.github.hondams</groupId>
 		<artifactId>fw-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../../fw/fw-parent/pom.xml</relativePath>
+		<relativePath>../../fw-lib/fw-parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>app-dependencies</artifactId>
 	<packaging>pom</packaging>

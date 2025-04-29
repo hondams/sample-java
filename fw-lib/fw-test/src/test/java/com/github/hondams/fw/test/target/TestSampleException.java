@@ -2,25 +2,25 @@ package com.github.hondams.fw.test.target;
 
 public class TestSampleException extends RuntimeException {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8873305663006574094L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 8873305663006574094L;
 
-	public TestSampleException() {
-		super();
-	}
+    public TestSampleException() {
+        super();
+    }
 
-	public TestSampleException(String message, Throwable cause) {
-		super(message, cause);
-	}
+    public TestSampleException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
-	public TestSampleException(String message) {
-		super(message);
-	}
+    public TestSampleException(String message) {
+        super(message);
+    }
 
-	public TestSampleException(Throwable cause) {
-		super(cause);
-	}
+    public TestSampleException(Throwable cause) {
+        super(cause);
+    }
 
 }

@@ -13,21 +13,15 @@ import lombok.Data;
 @Builder
 public class TestSampleBigDecimalData {
 
-    @NotNull
-    private BigDecimal notNullValue;
+    @NotNull private BigDecimal notNullValue;
 
-    @DecimalMax(value = "10.0", inclusive = false)
-    private BigDecimal exclusiveMaxValue;
+    @DecimalMax(value = "10.0", inclusive = false) private BigDecimal exclusiveMaxValue;
 
-    @DecimalMax(value = "10.0")
-    private BigDecimal maxValue;
+    @DecimalMax(value = "10.0") private BigDecimal maxValue;
 
-    @DecimalMin(value = "10.0", inclusive = false)
-    private BigDecimal exclusiveMinValue;
+    @DecimalMin(value = "10.0", inclusive = false) private BigDecimal exclusiveMinValue;
 
-    @DecimalMin(value = "10.0")
-    private BigDecimal minValue;
+    @DecimalMin(value = "10.0") private BigDecimal minValue;
 
-    @Digits(integer = 5, fraction = 2)
-    private BigDecimal digitsValue;
+    @Digits(integer = 5, fraction = 2) private BigDecimal digitsValue;
 }

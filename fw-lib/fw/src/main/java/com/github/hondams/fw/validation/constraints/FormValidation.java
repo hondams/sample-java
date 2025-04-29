@@ -18,13 +18,13 @@ import jakarta.validation.Payload;
 @Repeatable(FormValidation.List.class)
 @Constraint(validatedBy = DelegatingFormValidator.class)
 @Documented
-public @interface FormValidation  {
+public @interface FormValidation {
 
     String message() default "{com.github.hondams.fw.validation.CustomValidation.message}";
 
-    Class<?>[] groups() default { };
+    Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default { };
+    Class<? extends Payload>[] payload() default {};
 
     Class<? extends FormValidatorBase> validatorType();
 

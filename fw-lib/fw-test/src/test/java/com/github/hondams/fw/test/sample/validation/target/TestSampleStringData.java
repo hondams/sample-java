@@ -11,15 +11,11 @@ import lombok.Data;
 @Builder
 public class TestSampleStringData {
 
-    @NotNull
-    private String notNullValue;
+    @NotNull private String notNullValue;
 
-    @NotEmpty
-    private String notEmptyValue;
+    @NotEmpty private String notEmptyValue;
 
-    @Size(min = 1, max = 10)
-    private String sizeValue;
+    @Size(min = 1, max = 10) private String sizeValue;
 
-    @Pattern(regexp = "^[a-zA-Z0-9]+$")
-    private String patternValue;
+    @Pattern(regexp = "^[a-zA-Z0-9]+$") private String patternValue;
 }
