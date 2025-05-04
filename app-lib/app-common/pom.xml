@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.github.hondams</groupId>
-		<artifactId>app-dependencies</artifactId>
+		<artifactId>app-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../app-dependencies/pom.xml</relativePath>
+		<relativePath>../app-parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>app-common</artifactId>
 	<dependencies>

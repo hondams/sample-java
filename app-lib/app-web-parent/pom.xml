@@ -11,6 +11,10 @@
 	<artifactId>app-web-parent</artifactId>
 	<packaging>pom</packaging>
 	<dependencies>
+		<dependency>
+			<groupId>com.github.hondams</groupId>
+			<artifactId>app-common</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

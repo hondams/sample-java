@@ -25,7 +25,7 @@ public class LoggingEventExtension implements BeforeEachCallback, AfterEachCallb
     public static List<ILoggingEvent> getLoggingEvents() {
         Deque<ArgumentCaptor<ILoggingEvent>> loggingEventCaptors = loggingEventCaptorsHolder.get();
         if (loggingEventCaptors == null || loggingEventCaptors.isEmpty()) {
-            return Collections.emptyList();
+            return Collections.emptyList(   );
         }
         ArgumentCaptor<ILoggingEvent> loggingEventCaptor = loggingEventCaptors.peek();
         return Collections.unmodifiableList(loggingEventCaptor.getAllValues());

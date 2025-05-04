@@ -28,7 +28,7 @@ class TestSampleDefaultValidationDataTest {
 
         // フィールドごと、チェック条件ごと、境界値ごとに、エラー・非エラーを確認する。
         return Stream.of(//
-                new Object[] {List.of(//
+                new Object[] {List.of( //
                         "【利用方法誤り】messageプロパティを指定して利用して下さい。"), //
                         noErrorBuilder()//
                                 .assertFalseValue(true)},

@@ -6,12 +6,28 @@
 	<artifactId>app-module</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<properties>
+		<spotless.version>2.44.4</spotless.version>
+	</properties>
 	<modules>
-		<module>app-dependencies</module>
 		<module>app-parent</module>
 		<module>app-common</module>
 		<module>app-web-parent</module>
 		<module>app-batch-parent</module>
 		<module>app-jms-parent</module>
 	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>${spotless.version}</version>
+				<configuration>
+					<pom>
+						<sortPom />
+					</pom>
+  				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

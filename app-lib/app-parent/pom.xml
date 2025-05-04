@@ -4,16 +4,31 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.github.hondams</groupId>
-		<artifactId>app-dependencies</artifactId>
+		<artifactId>fw-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../app-dependencies/pom.xml</relativePath>
+		<relativePath>../../fw-lib/fw-parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>app-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.github.hondams</groupId>
+				<artifactId>app-common</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>com.github.hondams</groupId>
-			<artifactId>app-common</artifactId>
+			<artifactId>fw</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.hondams</groupId>
+			<artifactId>fw-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

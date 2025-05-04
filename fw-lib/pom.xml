@@ -6,11 +6,27 @@
 	<artifactId>fw-module</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<properties>
+		<spotless.version>2.44.4</spotless.version>
+	</properties>
 	<modules>
-		<module>fw-dependencies</module>
 		<module>fw-test</module>
 		<module>fw-parent</module>
 		<module>fw</module>
 		<module>fw-sandbox</module>
 	</modules>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.diffplug.spotless</groupId>
+				<artifactId>spotless-maven-plugin</artifactId>
+				<version>${spotless.version}</version>
+				<configuration>
+					<pom>
+						<sortPom />
+					</pom>
+  				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
