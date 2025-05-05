@@ -115,7 +115,7 @@
     - 【使わない】Digits
       - アノテーション付き要素は、許容範囲内の数値である必要があります。
       - 【利用禁止】小数部はFractionDigitsを利用し、整数部は、DecimalRangeを利用する
-    - FractionDigits
+    - 【追加】FractionDigits
       - アノテーション付き要素は、許容範囲内の小数点以下桁数である必要があります。
 - 文字列
   - String
